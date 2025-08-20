@@ -1,3 +1,10 @@
 /.idea
 /Java/.idea
 app/src/main/java/org/example/App.java
+terraform/scripts/.env
+terraform/keys/vm-ssh-key.pub
+
+/terraform/.terraform
+terraform/.terraform.lock.hcl
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
