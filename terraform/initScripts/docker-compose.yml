@@ -1,0 +1,12 @@
+services:
+  pongshots:
+    container_name: pongshots
+    image: ghcr.io/crazyscreamx/pongshots:latest
+    ports:
+      - "8080:8080"
+
+  watchtower:
+    image: containrrr/watchtower:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval ${WATCHTOWER_INTERVAL}

@@ -116,6 +116,11 @@ resource "aws_instance" "main" {
   key_name               = aws_key_pair.vm-key.key_name
   subnet_id              = aws_subnet.name.id
   vpc_security_group_ids = [aws_security_group.main.id]
+  user_data_base64 = base64encode(templatefile("./initScripts/cloud-init.sh", {
+    docker_compose_yml  = file("./initScripts/docker-compose.yml"),
+    watchtower_interval = var.watchtower_interval
+  }))
+  user_data_replace_on_change = true
 
   tags = {
     name = var.tag

@@ -9,3 +9,9 @@ variable "tag" {
   type        = string
   default     = "prod"
 }
+
+variable "watchtower_interval" {
+  description = "Interval for Watchtower updates in seconds"
+  type        = number
+  default     = 30
+}
