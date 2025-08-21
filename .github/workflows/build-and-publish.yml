@@ -1,8 +1,8 @@
 name: Build and Publish Docker Image
 on:
-  push:
-    paths:
-      - Java/**
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
