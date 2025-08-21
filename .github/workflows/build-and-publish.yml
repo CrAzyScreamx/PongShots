@@ -3,8 +3,8 @@ on:
   pull_request:
     branches:
       - master
-  paths:
-    - Java/**
+    paths:
+      - Java/**
 
 jobs:
   build:
