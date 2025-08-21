@@ -3,6 +3,8 @@ on:
   pull_request:
     branches:
       - master
+  paths:
+    - Java/**
 
 jobs:
   build:
@@ -12,4 +14,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Gradle Tests
-        run: ./java/gradlew test
+        run: ./Java/gradlew test
