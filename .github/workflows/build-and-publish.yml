@@ -19,6 +19,7 @@ jobs:
         run: ./gradlew test
 
       - name: Build Java Application
+        working-directory: ./Java
         run: ./gradlew build
 
       - name: Login to ghcr.io Docker Registry
