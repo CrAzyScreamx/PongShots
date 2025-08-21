@@ -11,7 +11,7 @@ import java.util.HashMap;
 @RestController
 public class Controller {
 
-    private static int PongShots = 0;
+    private static int PongShots = 1;
     private static boolean gameStarted = false;
 
     @GetMapping("/")
