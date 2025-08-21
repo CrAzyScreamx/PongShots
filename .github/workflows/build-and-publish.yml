@@ -16,8 +16,6 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x Java/gradlew
 
-      - name: Going to Java directory
-        run: cd ./Java
-
       - name: Run Gradle Tests
+        working-directory: ./Java
         run: ./gradlew test
