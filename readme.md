@@ -131,6 +131,45 @@ cd Java
 - `src/test/java/` - Unit tests
 - `build.gradle` - Build configuration and dependencies
 
+### API Endpoints
+The PongShots application provides the following REST API endpoints:
+
+| Endpoint | Method | Description | Request Body | Response |
+|----------|--------|-------------|--------------|----------|
+| `/` | GET | Home endpoint with welcome message | None | JSON with message, status, and optional details |
+| `/game/start` | POST | Start a new game session | None | JSON with success message and current score (0) |
+| `/game/status` | GET | Get current game status | None | JSON with `gameStarted` (boolean) and `pongShots` (score) |
+| `/game/pongshot` | POST | Make a pong shot with specified power | `{"power": 1-100}` | JSON with success message and updated score |
+| `/game/reset` | POST | Reset the current game score to 0 | None | JSON with success message |
+| `/game/stop` | POST | Stop the current game session | None | JSON with success message and reset score |
+
+**Endpoint Details:**
+
+**GET `/`**
+- Optional query parameter: `?detailed=true` for additional version and timestamp info
+- Always returns HTTP 200
+
+**POST `/game/start`**
+- Returns HTTP 200 if game started successfully
+- Returns HTTP 304 if game is already started
+
+**GET `/game/status`**  
+- Always returns HTTP 200
+- Shows current game state and accumulated score
+
+**POST `/game/pongshot`**
+- Requires JSON body with `power` field (integer 1-100)
+- Returns HTTP 400 if game not started or invalid power value
+- Returns HTTP 200 with updated accumulated score
+
+**POST `/game/reset`**
+- Returns HTTP 400 if game not started
+- Returns HTTP 200 if reset successful (score becomes 0)
+
+**POST `/game/stop`**
+- Returns HTTP 400 if game not started  
+- Returns HTTP 200 and resets score to 0
+
 ### Container Configuration
 The application is containerized using Docker with automatic updates via Watchtower.
 
