@@ -87,7 +87,6 @@ resource "aws_security_group_rule" "allow-all-outbound" {
   security_group_id = aws_security_group.main.id
 }
 
-
 ### Load Public Key ###
 resource "aws_key_pair" "vm-key" {
   key_name   = "vm-key"
