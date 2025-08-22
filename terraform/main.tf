@@ -93,6 +93,7 @@ resource "aws_key_pair" "vm-key" {
   public_key = file(var.ssh_key_path)
 }
 
+
 ### Get AMI for Ubuntu 22.04 ###
 data "aws_ami" "ubuntu" {
   most_recent = true
