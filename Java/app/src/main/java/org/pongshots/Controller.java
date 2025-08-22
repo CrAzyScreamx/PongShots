@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class Controller {
 
     private static int PongShots = 0;
-    private static boolean gameStarted = false;
+    private static boolean gameStarted = true;
 
     @GetMapping("/")
     public Map<String, Object> home(@RequestParam(defaultValue = "false") boolean detailed) {

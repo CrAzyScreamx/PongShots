@@ -1,4 +1,4 @@
-name: Build and Publish Docker Image
+name: Test Java Application
 on:
   pull_request:
     branches:
@@ -6,7 +6,7 @@ on:
     paths:
       - Java/**
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
