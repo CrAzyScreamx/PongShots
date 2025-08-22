@@ -33,6 +33,11 @@ class MainWebLayerTest {
     }
 
     @Test
+    void failPurposely() {
+        assert(false);
+    }
+
+    @Test
     void isHomeEndpointAlive() throws Exception {
         // Test "/" path to ensure its alive
         mockMvc.perform(get("/"))
