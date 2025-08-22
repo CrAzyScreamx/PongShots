@@ -13,7 +13,6 @@ This project serves as a comprehensive example of modern DevOps operations, inte
 ```
 PongShots/
 ├── Dockerfile
-├── gradle.properties
 ├── Java/
 │   ├── gradle.properties
 │   ├── gradlew
