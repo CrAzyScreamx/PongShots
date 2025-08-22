@@ -90,7 +90,7 @@ resource "aws_security_group_rule" "allow-all-outbound" {
 ### Load Public Key ###
 resource "aws_key_pair" "vm-key" {
   key_name   = "vm-key"
-  public_key = file("./keys/vm-ssh-key.pub")
+  public_key = file(var.ssh_key_path)
 }
 
 ### Get AMI for Ubuntu 22.04 ###
