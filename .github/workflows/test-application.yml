@@ -1,4 +1,4 @@
-name: Build and Publish Docker Image
+name: Test Java Application
 on:
   pull_request:
     branches:
