@@ -1,0 +1,20 @@
+name: Build and Publish Docker Image
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - Java/**
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Make gradlew executable
+        run: chmod +x Java/gradlew
+
+      - name: Run Gradle Tests
+        working-directory: ./Java
+        run: ./gradlew test

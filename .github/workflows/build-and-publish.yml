@@ -3,7 +3,6 @@ on:
   push:
     branches:
       - master
-  pull_request:
     paths:
       - Java/**
 permissions:
@@ -13,16 +12,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Make gradlew executable
-        run: chmod +x Java/gradlew
-
-      - name: Run Gradle Tests
-        working-directory: ./Java
-        run: ./gradlew test
-
       - name: Build Java Application
         working-directory: ./Java
         run: ./gradlew build
