@@ -43,8 +43,6 @@ PongShots/
         └── run.sh
 ```
 
-**Note:** This structure excludes build artifacts, generated files, IDE configurations, and sensitive files that are ignored by `.gitignore`.
-
 ## Technologies Used
 
 | Component | Technology | Purpose |
