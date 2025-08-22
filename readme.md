@@ -220,11 +220,29 @@ GitHub Actions provides automated testing and deployment workflows.
      - Automatic deployment via Watchtower
 
 **Configuration for Forked Repositories:**
-If you fork this repository, update the container registry reference in `.github/workflows/build-and-push.yml`:
-```yaml
-# Update the registry URL under "Build Docker Image" step
-registry: ghcr.io/[YOUR_USERNAME]/pongshots
-```
+If you fork this repository, update the following in `.github/workflows/build-and-push.yml`:
+
+1. **Update the container registry reference:**
+   ```yaml
+   # Update the registry URL under "Build Docker Image" step
+   registry: ghcr.io/[YOUR_USERNAME]/pongshots
+   ```
+
+2. **Configure Docker login credentials:**
+   ```yaml
+   # Update the Docker login step to match your registry
+   - name: Login to Container Registry
+     uses: docker/login-action@v2
+     with:
+       registry: ghcr.io  # Change to your registry (docker.io, gcr.io, etc.)
+       username: ${{ github.actor }}  # Update for your registry authentication
+       password: ${{ secrets.GITHUB_TOKEN }}  # Use appropriate secret for your registry
+   ```
+
+   **Common registry configurations:**
+   - **Docker Hub:** `registry: docker.io`, use `DOCKER_USERNAME` and `DOCKER_PASSWORD` secrets
+   - **Google Container Registry:** `registry: gcr.io`, use service account credentials
+   - **AWS ECR:** `registry: [account].dkr.ecr.[region].amazonaws.com`, use AWS credentials
 
 ## Usage
 
