@@ -15,3 +15,9 @@ variable "watchtower_interval" {
   type        = number
   default     = 30
 }
+
+variable "ssh_key_path" {
+  description = "Path to the SSH public key file"
+  type        = string
+  default     = "./keys/vm-ssh-key.pub"
+}
